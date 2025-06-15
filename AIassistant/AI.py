@@ -8,7 +8,7 @@ import threading
 user32 = ctypes.windll.user32
 gdi32 = ctypes.windll.gdi32
 
-# WorkerWのウィンドウハンドル取得関数（先ほどの例と同じ）
+
 def get_workerw():
     progman = win32gui.FindWindow("Progman", None)
     result = ctypes.c_ulong()
@@ -35,7 +35,7 @@ def draw_text_on_workerw(hwnd, text):
     user32.GetClientRect(hwnd, ctypes.byref(rect))
 
     brush = gdi32.CreateSolidBrush(0x002233)  # ダークブルー
-    user32.FillRect(hdc, ctypes.byref(rect), brush)  # ここをuser32に変更
+    user32.FillRect(hdc, ctypes.byref(rect), brush)  
 
     gdi32.SetTextColor(hdc, 0xFFFFFF)  # 白色
     gdi32.SetBkMode(hdc, win32con.TRANSPARENT)
